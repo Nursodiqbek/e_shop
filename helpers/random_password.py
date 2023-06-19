@@ -13,3 +13,4 @@ print(random_password(3))
 def generate_code_token(length):
     password = ''.join(random.choice(string.ascii_letters) for i in range(length))
     return password
+print(generate_code_token(16))

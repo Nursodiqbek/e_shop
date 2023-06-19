@@ -53,6 +53,7 @@ class LoginStartView(APIView):
         email = request.data.get('email')
         password = request.data.get('password')
         user = authenticate(email=email, password=password)
+
         if user:
             code = random_password.random_password(6)
             code_token = generate_code_token(32)
