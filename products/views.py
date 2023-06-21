@@ -4,6 +4,7 @@ from rest_framework.viewsets import ModelViewSet, GenericViewSet
 from rest_framework import permissions, mixins, status
 from rest_framework.response import Response
 from helpers.pagination import CustomPagination
+from django_filters.rest_framework import DjangoFilterBackend
 
 
 class CategoryView(mixins.RetrieveModelMixin,
@@ -29,6 +30,8 @@ class ProductView(mixins.RetrieveModelMixin,
                   mixins.ListModelMixin,
                   GenericViewSet):
     queryset = Product.objects.all()
+    filter_backends = [DjangoFilterBackend]
+    filterset_fields = ['price']
     serializer_class = ProductSerializer
     pagination_class = CustomPagination
     permission_classes = (permissions.IsAuthenticated,)
