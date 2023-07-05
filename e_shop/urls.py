@@ -6,6 +6,7 @@ from drf_yasg.views import get_schema_view
 from drf_yasg import openapi
 from products.routers import router as product_router
 from orders.routers import router as order_router
+from file_service.routers import router as file_router
 
 urlpatterns = [
     path('admin/', admin.site.urls),
@@ -13,6 +14,7 @@ urlpatterns = [
     path('auth/', include('account.urls')),
     path('products/', include(product_router.urls)),
     path('order/', include(order_router.urls)),
+    path('file/', include(file_router.urls)),
 ]
 schema_view = get_schema_view(
     openapi.Info(
