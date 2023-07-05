@@ -23,7 +23,6 @@ class FileView(mixins.CreateModelMixin,
         return Response({
             'message': 'File uploaded!',
             'id': file_m.id,
-            'file_url': file_m.file.url
         })
 
     def retrieve(self, request, *args, **kwargs):
